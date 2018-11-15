@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/list_name"
+        android:layout_width="319dp"
+        android:layout_height="26dp"
+        android:text="@+id/label"
+        android:textSize="15sp"
+        tools:text="Name"
+        android:layout_marginEnd="2dp"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/list_number"
+        android:layout_marginTop="4dp"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="0.0"/>
+
+    <TextView
+        android:id="@+id/list_number"
+        android:layout_width="315dp"
+        android:layout_height="20dp"
+        android:text="@+id/label"
+        android:textSize="15sp"
+        tools:text="Number"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/list_frequency"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="31dp"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="31dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="0.0"/>
+
+    <TextView
+        android:id="@+id/list_frequency"
+        android:layout_width="0dp"
+        android:layout_height="22dp"
+        android:text="@+id/label"
+        android:textSize="15sp"
+        tools:text="frequency"
+        app:layout_constraintRight_toLeftOf="@+id/list_date"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintBaseline_toBaselineOf="@+id/list_date"
+        tools:layout_constraintBaseline_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <TextView
+        android:id="@+id/list_message"
+        android:layout_width="0dp"
+        android:layout_height="23dp"
+        android:text="@+id/label"
+        android:textSize="15sp"
+        tools:text="Message"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="92dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/list_date"
+        android:layout_width="111dp"
+        android:layout_height="21dp"
+        android:layout_marginEnd="1dp"
+        android:text="@+id/label"
+        android:textSize="15sp"
+        tools:text="Date"
+        app:layout_constraintRight_toLeftOf="@+id/list_time"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/list_message"
+        android:layout_marginBottom="11dp"/>
+
+    <TextView
+        android:id="@+id/list_time"
+        android:layout_width="89dp"
+        android:layout_height="21dp"
+        android:text="@+id/label"
+        android:textSize="15sp"
+        tools:text="time"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/list_name"
+        app:layout_constraintBaseline_toBaselineOf="@+id/list_date"
+        tools:layout_constraintBaseline_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toRightOf="@+id/list_name"/>
+
+    <ImageButton
+        android:id="@+id/send_boolean"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:tint="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="@+id/list_name"
+        app:layout_constraintLeft_toRightOf="@+id/list_number"
+        app:layout_constraintTop_toBottomOf="@+id/list_name"
+        app:layout_constraintVertical_bias="0.461"
+        app:srcCompat="@android:drawable/ic_menu_send"
+        tools:ignore="ContentDescription"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+</android.support.constraint.ConstraintLayout>

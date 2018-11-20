@@ -4,6 +4,9 @@
     <string name="message_hint">Enter the message you want to send</string>
     <string name="action_send">Send</string>
     <string name="action_cancel">Cancel</string>
+    <string name="menu_delete">Delete</string>
+    <string name="menu_edit">Edit</string>
+    <string name="no_messages">"You have no messages to send"</string>
     <string-array name="frequency_array">
         <item>One Time</item>
         <item>Daily</item>

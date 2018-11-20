@@ -3,6 +3,7 @@ package com.example.tarek.mes_sage;
 import android.content.Context;
 import android.graphics.Color;
 import android.util.Log;
+import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,10 +16,8 @@ import java.util.List;
 import static android.content.ContentValues.TAG;
 
 public class ListAdapter extends ArrayAdapter<Message> {
-/*
-    public ListAdapter(Context context, int textViewResourceId) {
-        super(context, textViewResourceId);
-    }*/
+    private SparseBooleanArray selectedListItemsIds;
+    List multipleSelectionList;
 
     public ListAdapter(Context context, int resource, List<Message> items) {
         super(context, resource, items);
@@ -51,7 +50,7 @@ public class ListAdapter extends ArrayAdapter<Message> {
                 }
                 else{
                     m.setSend(true);
-                    send.setColorFilter(Color.argb(255, 8, 190, 199));
+                    send.setColorFilter(Color.argb(255, 27, 52, 216));
                 }
             }
         });

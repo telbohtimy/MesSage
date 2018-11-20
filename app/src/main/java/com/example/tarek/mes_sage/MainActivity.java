@@ -5,19 +5,21 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
+import android.view.ContextMenu;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    public ArrayList<Message> messageList = new ArrayList<>();
+    //public ArrayList<Message> messageList = new ArrayList<>();
+    ListAdapter customAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,15 +61,18 @@ public class MainActivity extends AppCompatActivity {
         //if(messageList.isEmpty()){
         if(MessageController.getMessageList().isEmpty()){
             TextView ProgrammaticallyTextView = findViewById(R.id.no_message);
-            ProgrammaticallyTextView.setText("You have no messages to send");
+            ProgrammaticallyTextView.setText(R.string.no_messages);
             ProgrammaticallyTextView.setTextSize(20);
         }
         else {
             ListView listView = findViewById(R.id.message_list_view);
             // get data from the table by the ListAdapter
             //ListAdapter customAdapter = new ListAdapter(this, R.layout.list_message, messageList);
-            ListAdapter customAdapter = new ListAdapter(this, R.layout.list_message, MessageController.getMessageList());
+            customAdapter = new ListAdapter(this, R.layout.list_message, MessageController.getMessageList());
             listView.setAdapter(customAdapter);
+            customAdapter.notifyDataSetChanged();
+
+            registerForContextMenu(listView);
         }
 
     }
@@ -75,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onResume() {
         super.onResume();  // Always call the superclass method first
+        customAdapter.notifyDataSetChanged();
 
     }
 
@@ -109,5 +115,32 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
         MessageController.saveMessageList(this);
 
+    }
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        if (v.getId()==R.id.message_list_view) {
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.menu_list, menu);
+        }
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        switch(item.getItemId()) {
+            case R.id.edit:
+                return true;
+            case R.id.delete:
+                Context context2 = getApplicationContext();
+                CharSequence text = String.valueOf(info.position) +" "+String.valueOf(info.id);
+                int duration = Toast.LENGTH_LONG;
+
+                Toast toast = Toast.makeText(context2, text, duration);
+                toast.show();
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
     }
 }

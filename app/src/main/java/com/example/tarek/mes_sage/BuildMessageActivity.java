@@ -7,10 +7,12 @@ import android.net.Uri;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -41,6 +43,11 @@ public class BuildMessageActivity extends AppCompatActivity {
                 R.array.frequency_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+
+        EditText targetEditText = findViewById(R.id.message);
+        targetEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        targetEditText.setRawInputType(InputType.TYPE_CLASS_TEXT);
+        targetEditText.setOnEditorActionListener(new DoneOnEditorActionListener());
     }
 
     public void onClickSelectContact(View btnSelectContact) {
@@ -109,12 +116,19 @@ public class BuildMessageActivity extends AppCompatActivity {
         }
     }
 
-    /*public void onClickDatePick(View v){
-        DialogFragment newFragment = new DatePickerFragment();
-        newFragment.show(getSupportFragmentManager(), "datePicker");
+    public void onClickDatePick(View v){
+        int a = 0;
+        /*DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "datePicker");*/
     }
     public void onClickTimePick(View v){
-        DialogFragment newFragment = new TimePickerFragment();
-        newFragment.show(getSupportFragmentManager(), "timePicker");
-    }*/
+        int a = 0;
+        /*DialogFragment newFragment = new TimePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "timePicker");*/
+    }
+    public void onClickOk(View v){
+        int a = 0;
+        /*DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "datePicker");*/
+    }
 }

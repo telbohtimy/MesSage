@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,67 +12,79 @@
         android:id="@+id/frequency_spinner"
         android:layout_width="178dp"
         android:layout_height="34dp"
-        android:layout_marginStart="8dp"
-        tools:layout_constraintTop_creator="1"
-        android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="125dp" />
+
     <EditText
         android:id="@+id/message"
-        android:hint="@string/message_hint"
-        android:maxLength="250"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_gravity="center_vertical|center_horizontal"
-        android:gravity="top|left"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="462dp"
+        android:layout_marginEnd="0dp"
+        android:gravity="start"
+        android:hint="@string/message_hint"
+        android:inputType="textCapSentences|textAutoCorrect|textMultiLine"
+        android:maxLength="250"
         android:maxLines="3"
-        android:inputType=
-            "textCapSentences|textAutoCorrect|textMultiLine"
-        tools:layout_constraintBottom_creator="1"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1" />
+
+ <!--   <Button
+        android:id="@+id/message_ok"
+        android:layout_width="54dp"
+        android:layout_height="43dp"
+        android:layout_alignTop="@+id/message"
+        android:layout_alignRight="@+id/message"
+        android:layout_alignBottom="@+id/message"
+        android:text="@string/ok"
+        android:onClick="onClickOk"/>-->
 
     <Button
         android:id="@+id/button"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_below="@+id/frequency_spinner"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="-146dp"
         android:background="@android:color/holo_green_dark"
         android:backgroundTint="@android:color/holo_green_dark"
         android:onClick="onClickSelectContact"
-        android:text="Select a Contact"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="8dp" />
+        android:text="@string/select_contact" />
 
     <Button
         android:id="@+id/button_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Set Date"
-        android:layout_marginStart="8dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button_time"
-        tools:layout_constraintBaseline_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:onClick="onClickDatePick"/>
+        android:layout_below="@+id/frequency_spinner"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="117dp"
+        android:layout_marginTop="-90dp"
+        android:onClick="onClickDatePick"
+        android:text="@string/set_date" />
 
     <Button
         android:id="@+id/button_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Set hour"
-        tools:layout_constraintTop_creator="1"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="54dp"
-        app:layout_constraintTop_toBottomOf="@+id/frequency_spinner"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toRightOf="@+id/button_date"
-        android:onClick="onClickTimePick"/>
+        android:layout_alignEnd="@+id/frequency_spinner"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="78dp"
+        android:onClick="onClickTimePick"
+        android:text="@string/set_time" />
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

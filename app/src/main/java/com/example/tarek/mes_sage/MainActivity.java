@@ -130,8 +130,6 @@ public class MainActivity extends AppCompatActivity {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         switch(item.getItemId()) {
             case R.id.edit:
-                return true;
-            case R.id.delete:
                 Context context2 = getApplicationContext();
                 CharSequence text = String.valueOf(info.position) +" "+String.valueOf(info.id);
                 int duration = Toast.LENGTH_LONG;
@@ -139,6 +137,9 @@ public class MainActivity extends AppCompatActivity {
                 Toast toast = Toast.makeText(context2, text, duration);
                 toast.show();
                 return true;
+            case R.id.delete:
+                MessageController.getMessageList().remove(info.position);
+                customAdapter.notifyDataSetChanged();
             default:
                 return super.onContextItemSelected(item);
         }
